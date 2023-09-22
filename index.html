@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Include Google Fonts for custom font -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Include FontAwesome CSS for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Reference Leaflet.js -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+    <!-- Reference Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <title>Liberia Election Results</title>
+    <style>
+        /* Custom CSS */
+        @media (max-width: 767px) {
+            .small-logo {
+                max-width: 150px; /* Increase the size to 150px */
+                margin: 0 auto; /* Center the logo on smaller screens */
+            }
+
+            .navbar-toggler-icon {
+                /*background-color: white;*/ /* Set the background color of the icon bars to white */
+                width: 30px; /* Increase the width of the icon bars */
+                height: 30px; /* Increase the height of the icon bars */
+                border-radius: 0; /* Remove the border-radius */
+            }
+
+                .navbar-toggler-icon::before, .navbar-toggler-icon::after {
+                    background-color: white; /* Set the color of the hamburger icon bars to white */
+                }
+        }
+    </style>
+
+    <!-- Custom CSS for small photos -->
+    <style>
+        /* Custom CSS for small photos */
+        .content {
+            max-width: 1200px; /* Set a maximum width for content */
+            margin: 0 auto; /* Center content horizontally */
+            padding: 20px; /* Add margin to content */
+        }
+
+        .presidential-photos {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap; /* Allow photos to wrap to the next line on small screens */
+        }
+
+        .candidate-card {
+            text-align: center;
+            width: 100px; /* Set a fixed width of 100px for each photo */
+            border: 2px solid #ccc; /* Add a border */
+            padding: 5px;
+            margin-bottom: 20px; /* Add spacing between photos */
+        }
+
+        .candidate-photo {
+            width: 80px; /* Set a fixed width for the photo */
+            height: 80px; /* Set a fixed height for the photo */
+            border-radius: 50%; /* Make the photo round */
+            margin: 0 auto; /* Center the photo horizontally */
+        }
+
+        .candidate-name {
+            font-weight: bold;
+        }
+
+        /* Custom CSS for the leading mark */
+        .leading-mark {
+            background-color: #ffcc00; /* Background color for the leading mark */
+            color: #ffffff; /* Text color for the leading mark */
+            font-weight: bold; /* Make the text bold */
+            padding: 5px 10px; /* Add padding to the mark for spacing */
+            border-radius: 5px; /* Add rounded corners to the mark */
+        }
+
+        /* Centered responsive div for the image */
+        .centered-div {
+            text-align: center;
+            margin: 0 auto;
+            padding: 20px;
+            /*box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);*/ /* Apply light shadow */
+            box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+            background-color: white; /* Background color for the centered div */
+            border-radius: 20px; /* Rounded corners for the centered div */
+        }
+
+            .centered-div img {
+                max-width: 80%;
+                height: auto;
+                display: block;
+                margin: 0 auto; /* Center the image horizontally */
+            }
+
+        /* Base styles for the scrolling banner */
+        .scrolling-banner {
+            background-color: red;
+            color: white;
+            overflow: hidden;
+            white-space: nowrap;
+            align-items: center;
+            align-items: center; /* Center vertically */
+        }
+
+        /* Responsive styles for smaller screens */
+        @media (max-width: 767px) {
+            .scrolling-banner {
+                font-size: 14px; /* Reduce font size for smaller screens */
+            }
+        }
+
+        /* Responsive styles for medium screens */
+        @media (min-width: 768px) and (max-width: 991px) {
+            .scrolling-banner {
+                font-size: 10px; /* Adjust font size for medium screens */
+            }
+        }
+
+        /* Responsive styles for larger screens */
+        @media (min-width: 992px) {
+            .scrolling-banner {
+                font-size: 14px; /* Increase font size for larger screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <nav class="navbar navbar-expand-md navbar-light">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="text-center mx-auto">
+                    <!-- Center-aligned logo -->
+                    <img src="http://localhost/erliberia/images/logo.png" alt="Your Logo" class="img-fluid logo small-logo">
+                </div>
+                <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                    <!-- Center-aligned menu -->
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-white" href="#" id="presidentialDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Presidential
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="presidentialDropdown">
+                                <li>
+                                    <a class="dropdown-item" href="#">2023 elections</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">2017 elections</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-white" href="#" id="houseDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                House
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="houseDropdown">
+                                <li>
+                                    <a class="dropdown-item" href="#">2023 elections</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">2020 by-elections</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">2019 elections</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">2018 elections</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-white" href="#" id="representativesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Representatives
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="representativesDropdown">
+                                <li>
+                                    <a class="dropdown-item" href="#">2023 elections</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">2021 elections</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">2020 elections</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">2018 elections</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-white" href="#" id="referendumDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Referendum
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="referendumDropdown">
+                                <li>
+                                    <a class="dropdown-item" href="#">2020 elections</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#">Interactive Map</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#">About</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="ml-auto">
+                    <!-- Right-aligned search button (icon) -->
+                    <button class="btn btn-outline-light">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Scrolling banner to indicate live results -->
+    <marquee behavior="scroll" direction="left" style="background-color:red;color:white;">
+        <span>Live Results: CDC leading with 15.57% of the votes | Last update: 19/09/2023 14:53 GMT</span>
+    </marquee>
+
+    <!-- Your main content goes here -->
+    <!-- Presidential Elections Results -->
+    <section class="content">
+        <div class="centered-div">
+            <div class="flourish-embed flourish-map" data-src="visualisation/15079078">
+                <script src="https://public.flourish.studio/resources/embed.js"></script>
+            </div>
+        </div>
+    </section>
+    <br />
+
+    <section class="content">
+        <div class="centered-div">
+            <div class="flourish-embed" data-src="visualisation/15078536">
+                <script src="https://public.flourish.studio/resources/embed.js"></script>
+            </div>
+        </div>
+    </section>
+    <br />
+
+    <!-- Senate Election Results -->
+    <section class="content">
+        <div class="centered-div">
+            <div class="flourish-embed flourish-election results chart" data-src="visualisation/15078127">
+                <script src="https://public.flourish.studio/resources/embed.js"></script>
+            </div>
+        </div>
+    </section>
+    <br />
+
+    <!-- Parliamentary Elections -->
+    <section class="content">
+        <div class="centered-div">
+            <div class="flourish-embed flourish-chart" data-src="visualisation/15043530">
+                <script src="https://public.flourish.studio/resources/embed.js"></script>
+            </div>
+        </div>
+
+        <br />
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2023 Liberia Elections Dashboard. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Include Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Include necessary JavaScript libraries -->
+    <!--<script src="js/leaflet.js"></script>
+    <script src="chart.js"></script>-->
+    <script src="map.js"></script>
+
+</body>
+</html>
