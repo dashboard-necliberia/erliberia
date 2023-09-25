@@ -143,7 +143,7 @@
                 </button>
                 <div class="text-center mx-auto">
                     <!-- Center-aligned logo -->
-                    <img src="logo.png" alt="Your Logo" class="img-fluid logo small-logo">
+                    <img src="http://localhost/erliberia/images/logo.png" alt="Your Logo" class="img-fluid logo small-logo">
                 </div>
                 <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                     <!-- Center-aligned menu -->
@@ -152,65 +152,24 @@
                             <a class="nav-link text-white" href="#">Home</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-white" href="#" id="presidentialDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link text-white" href="#" id="presidentialDropdown" role="button" aria-expanded="false">
                                 Presidential
                             </a>
-                            <ul class="dropdown-menu" aria-labelledby="presidentialDropdown">
-                                <li>
-                                    <a class="dropdown-item" href="#">2023 elections</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#">2017 elections</a>
-                                </li>
-                            </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-white" href="#" id="houseDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                House
+                            <a class="nav-link text-white" href="#" id="houseDropdown" role="button" aria-expanded="false">
+                                Senate
                             </a>
-                            <ul class="dropdown-menu" aria-labelledby="houseDropdown">
-                                <li>
-                                    <a class="dropdown-item" href="#">2023 elections</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#">2020 by-elections</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#">2019 elections</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#">2018 elections</a>
-                                </li>
-                            </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-white" href="#" id="representativesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link text-white" href="#" id="representativesDropdown" role="button" aria-expanded="false">
                                 Representatives
                             </a>
-                            <ul class="dropdown-menu" aria-labelledby="representativesDropdown">
-                                <li>
-                                    <a class="dropdown-item" href="#">2023 elections</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#">2021 elections</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#">2020 elections</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#">2018 elections</a>
-                                </li>
-                            </ul>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-white" href="#" id="referendumDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Referendum
                             </a>
-                            <ul class="dropdown-menu" aria-labelledby="referendumDropdown">
-                                <li>
-                                    <a class="dropdown-item" href="#">2020 elections</a>
-                                </li>
-                            </ul>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-white" href="#">Interactive Map</a>
@@ -232,10 +191,39 @@
 
     <!-- Scrolling banner to indicate live results -->
     <marquee behavior="scroll" direction="left" style="background-color:red;color:white;">
-        <span>Live Results: CDC leading with 15.57% of the votes | Last update: 19/09/2023 14:53 GMT</span>
+        <span>Live Results: Party 5 leading with 15.57% of the votes | Last update: 19/09/2023 14:53 GMT</span>
     </marquee>
 
     <!-- Your main content goes here -->
+    <!-- Presidential Elections Results -->
+    <section class="content">
+        <div class="centered-div">
+            <div class="flourish-embed flourish-gauge" data-src="visualisation/15135399">
+                <script src="https://public.flourish.studio/resources/embed.js"></script>
+            </div>
+        </div>
+    </section>
+    <br />
+
+    <!-- Elections Turnout by County -->
+    <section class="content">
+        <div class="centered-div">
+            <div class="flourish-embed flourish-gauge" data-src="visualisation/15139015">
+                <script src="https://public.flourish.studio/resources/embed.js"></script>
+            </div>
+        </div>
+    </section>
+    <br />
+
+    <!-- MAP OF TURNOUT BY COUNTY -->
+    <section class="content">
+        <div class="centered-div">
+            <div class="flourish-embed flourish-map" data-src="visualisation/15139420">
+            <script src="https://public.flourish.studio/resources/embed.js"></script></div>
+        </div>
+    </section>
+    <br />
+
     <!-- Presidential Elections Results -->
     <section class="content">
         <div class="centered-div">
@@ -289,8 +277,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <!-- Include necessary JavaScript libraries -->
-    <!--<script src="js/leaflet.js"></script>
-    <script src="chart.js"></script>-->
     <script src="map.js"></script>
 
 </body>
