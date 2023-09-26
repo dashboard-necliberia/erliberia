@@ -133,6 +133,34 @@
             }
         }
     </style>
+
+    <style type="text/css">
+        body {
+            height: 5000px;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            color: #FFF;
+            background: #41CAD4;
+            line-height: 30px;
+            text-align: center;
+            text-decoration: none;
+            width: 32px;
+            height: 32px;
+            border: 0;
+            border-radius: 50%;
+            display: none;
+            cursor: pointer;
+            z-index: 9999;
+        }
+
+            .back-to-top:hover {
+                background: #2DB6C0;
+            }
+    </style>
 </head>
 <body>
     <header class="site-header">
@@ -167,7 +195,7 @@
                             </a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-white" href="#" id="referendumDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle text-white" href="#" id="referendumDropdown" role="button" aria-expanded="false">
                                 Referendum
                             </a>
                         </li>
@@ -189,13 +217,43 @@
         </div>
     </header>
 
+    <div id="top"></div>
+
     <!-- Scrolling banner to indicate live results -->
     <marquee behavior="scroll" direction="left" style="background-color:red;color:white;">
         <span>Live Results: Party 5 leading with 15.57% of the votes | Last update: 19/09/2023 14:53 GMT</span>
     </marquee>
 
+    <div class="content">
+        <!-- Custom buttons that turn into a dropdown on smaller screens -->
+        <div class="button-container text-center">
+            <!-- Buttons for larger screens -->
+            <div class="d-none d-md-block">
+                <a href="#turnout-county" class="btn btn-outline-danger">Turnout by County</a>
+                <a href="#presidential-turnout" class="btn btn-outline-success">Presidential Turnout</a>
+                <a href="#presidential-result" class="btn btn-outline-primary">Presidential - Results</a>
+                <a href="#senate-result" class="btn btn-outline-primary">Senate - Results</a>
+                <a href="#parliament-result" class="btn btn-outline-primary">House - Results</a>
+            </div>
+
+            <!-- Dropdown for mobile devices -->
+            <div class="dropdown d-md-none">
+                <button class="btn btn-outline-primary dropdown-toggle" type="button" id="mobileDropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Select the visual to see from here
+                </button>
+                <div class="dropdown-menu" aria-labelledby="mobileDropdownMenuButton">
+                    <a class="dropdown-item" href="#turnout-county">Turnout by County</a>
+                    <a class="dropdown-item" href="#presidential-turnout">Presidential Turnout</a>
+                    <a class="dropdown-item" href="#presidential-result">Presidential - Results</a>
+                    <a class="dropdown-item" href="#senate-result">Senate - Results</a>
+                    <a class="dropdown-item" href="#parliament-result">House - Results</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Your main content goes here -->
-    <!-- Presidential Elections Results -->
+    <!-- Elections Result Turnout -->
     <section class="content">
         <div class="centered-div">
             <div class="flourish-embed flourish-gauge" data-src="visualisation/15135399">
@@ -206,63 +264,71 @@
     <br />
 
     <!-- Elections Turnout by County -->
-    <section class="content">
+    <section id="election-turnout" class="content">
         <div class="centered-div">
             <div class="flourish-embed flourish-gauge" data-src="visualisation/15139015">
                 <script src="https://public.flourish.studio/resources/embed.js"></script>
             </div>
         </div>
+        <p class="back-to-top"><a href="#top"><i class="fas fa-arrow-up"></i>Back to Top</a></p> <!-- Back to Top link -->
     </section>
     <br />
 
-    <!-- MAP OF TURNOUT BY COUNTY -->
-    <section class="content">
+    <!-- Map of turnout by county -->
+    <section id="turnout-county" class="content">
         <div class="centered-div">
             <div class="flourish-embed flourish-map" data-src="visualisation/15139420">
-            <script src="https://public.flourish.studio/resources/embed.js"></script></div>
+                <script src="https://public.flourish.studio/resources/embed.js"></script>
+            </div>
         </div>
+        <p class="back-to-top"><a href="#top"><i class="fas fa-arrow-up"></i>Back to Top</a></p> <!-- Back to Top link -->
     </section>
     <br />
 
-    <!-- Presidential Elections Results -->
-    <section class="content">
+    <!-- Presidential Elections Turnout By County -->
+    <section id="presidential-turnout" class="content">
         <div class="centered-div">
             <div class="flourish-embed flourish-map" data-src="visualisation/15079078">
                 <script src="https://public.flourish.studio/resources/embed.js"></script>
             </div>
         </div>
+        <p class="back-to-top"><a href="#top"><i class="fas fa-arrow-up"></i>Back to Top</a></p> <!-- Back to Top link -->
     </section>
     <br />
 
-    <section class="content">
+    <!-- Presidential Elections Results by County -->
+    <section id="presidential-result" class="content">
         <div class="centered-div">
             <div class="flourish-embed" data-src="visualisation/15078536">
                 <script src="https://public.flourish.studio/resources/embed.js"></script>
             </div>
         </div>
+        <p class="back-to-top"><a href="#top"><i class="fas fa-arrow-up"></i>Back to Top</a></p> <!-- Back to Top link -->
     </section>
     <br />
 
     <!-- Senate Election Results -->
-    <section class="content">
+    <section id="senate-result" class="content">
         <div class="centered-div">
             <div class="flourish-embed flourish-election results chart" data-src="visualisation/15078127">
                 <script src="https://public.flourish.studio/resources/embed.js"></script>
             </div>
         </div>
+        <p class="back-to-top"><a href="#top"><i class="fas fa-arrow-up"></i>Back to Top</a></p> <!-- Back to Top link -->
     </section>
     <br />
 
     <!-- Parliamentary Elections -->
-    <section class="content">
+    <section id="parliament-result" class="content">
         <div class="centered-div">
             <div class="flourish-embed flourish-chart" data-src="visualisation/15043530">
                 <script src="https://public.flourish.studio/resources/embed.js"></script>
             </div>
         </div>
-
-        <br />
+        <!--<a href="#" class="back-to-top" title="Back To Top">&uarr;</a>-->
+        <p class="back-to-top"><a href="#top"><i class="fas fa-arrow-up"></i>Back to Top</a></p> <!-- Back to Top link -->
     </section>
+    <br />
 
     <!-- Footer Section -->
     <footer class="footer">
@@ -276,8 +342,22 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <!-- Include necessary JavaScript libraries -->
-    <script src="map.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(window).on('scroll', function () {
+                if ($(this).scrollTop() > 100) {
+                    $('.back-to-top').fadeIn();
+                } else {
+                    $('.back-to-top').fadeOut();
+                }
+            });
 
+            $('.back-to-top').on('click', function (e) {
+                e.preventDefault();
+                $('html,body').animate({ scrollTop: 0 }, 600);
+            });
+        });
+    </script>
 </body>
 </html>
