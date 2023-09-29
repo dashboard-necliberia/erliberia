@@ -187,12 +187,12 @@
         <div class="button-container text-center">
             <!-- Buttons for larger screens -->
             <div class="d-none d-md-block">
-                <a href="#turnout-county" class="btn btn-outline-danger">Turnout by County</a>
-                <a href="#presidential-turnout" class="btn btn-outline-success">Presidential Turnout</a>
-                <a href="#presidential-result" class="btn btn-outline-primary">Results by County</a>
-                <a href="#senate-result" class="btn btn-outline-primary">Results by Magisterial Area</a>
-                <a href="#senate-result" class="btn btn-outline-primary">Results by Electoral District</a>
-                <a href="#parliament-result" class="btn btn-outline-primary">Results by Center</a>
+                <a href="#presidential-result-county" class="btn btn-outline-primary">County</a>
+                <a href="#presidential-result-magisterial" class="btn btn-outline-primary">Magisterial Area</a>
+                <a href="#presidential-result-district" class="btn btn-outline-primary">Electoral District</a>
+                <a href="#presidential-result-center" class="btn btn-outline-primary">Center</a>
+                <a href="#presidential-result-place" class="btn btn-outline-primary">Polling Place</a>
+                <a href="#presidential-result-table-place" class="btn btn-outline-primary">Table by Polling Place</a>
             </div>
 
             <!-- Dropdown for mobile devices -->
@@ -201,20 +201,20 @@
                     Select the visual to see from here
                 </button>
                 <div class="dropdown-menu" aria-labelledby="mobileDropdownMenuButton">
-                    <a class="dropdown-item" href="#turnout-county">Turnout by County</a>
-                    <a class="dropdown-item" href="#presidential-turnout">Presidential Turnout</a>
-                    <a class="dropdown-item" href="#presidential-result">Presidential - Results</a>
-                    <a class="dropdown-item" href="#senate-result">Senate - Results</a>
-                    <a class="dropdown-item" href="#parliament-result">House - Results</a>
+                    <a class="dropdown-item" href="#presidential-result-county">Results by County</a>
+                    <a class="dropdown-item" href="#presidential-result-magisterial">Results by Magisterial Area</a>
+                    <a class="dropdown-item" href="#presidential-result-district">Results by Electoral District</a>
+                    <a class="dropdown-item" href="#presidential-result-center">Results by Center</a>
+                    <a class="dropdown-item" href="#presidential-result-place">Results by Polling Place</a>
+                    <a class="dropdown-item" href="#presidential-result-table-place">Result Table by Polling Place</a>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Your main content goes here -->
-
     <!-- Presidential Elections Results by County -->
-    <section id="presidential-result-by-county" class="content">
+    <section id="presidential-result-county" class="content">
         <div class="centered-div">
             <div class="flourish-embed flourish-chart" data-src="visualisation/15179118">
                 <script src="https://public.flourish.studio/resources/embed.js"></script>
@@ -228,7 +228,21 @@
     <br />
 
     <!-- Presidential Elections Results by Electoral District -->
-    <section id="candidate-result-by-electoral-district" class="content">
+    <section id="presidential-result-magisterial" class="content">
+        <div class="centered-div">
+            <div class="flourish-embed flourish-chart" data-src="visualisation/15182737">
+                <script src="https://public.flourish.studio/resources/embed.js"></script>
+            </div>
+        </div>
+        <!--<a href="#" class="back-to-top" title="Back To Top">&uarr;</a>-->
+        <p class="back-to-top">
+            <a href="#top"><i class="fas fa-arrow-up"></i>Back to Top</a>
+        </p> <!-- Back to Top link -->
+    </section>
+    <br />
+
+    <!-- Presidential Elections Results by Electoral District -->
+    <section id="presidential-result-district" class="content">
         <div class="centered-div">
             <div class="flourish-embed flourish-chart" data-src="visualisation/15165119">
                 <script src="https://public.flourish.studio/resources/embed.js"></script>
@@ -241,8 +255,8 @@
     </section>
     <br />
 
-    <!-- Presidential Elections Results by Electoral District -->
-    <section id="candidate-result-by-center" class="content">
+    <!-- Presidential Elections Results by Center -->
+    <section id="presidential-result-center" class="content">
         <div class="centered-div">
             <div class="flourish-embed flourish-chart" data-src="visualisation/15182266">
                 <script src="https://public.flourish.studio/resources/embed.js"></script>
@@ -255,8 +269,8 @@
     </section>
     <br />
 
-    <!-- Presidential Elections Results by Electoral District -->
-    <section id="candidate-result-by-place" class="content">
+    <!-- Presidential Elections Results by Polling Place -->
+    <section id="presidential-result-place" class="content">
         <div class="centered-div">
             <div class="flourish-embed flourish-chart" data-src="visualisation/15182345">
                 <script src="https://public.flourish.studio/resources/embed.js"></script>
@@ -270,10 +284,11 @@
     <br />
 
     <!-- Presidential Elections Results Table by Polling Place -->
-    <section id="candidate-result-table-by-place" class="content">
+    <section id="presidential-result-table-place" class="content">
         <div class="centered-div">
             <div class="flourish-embed flourish-table" data-src="visualisation/15135301">
-            <script src="https://public.flourish.studio/resources/embed.js"></script></div>
+                <script src="https://public.flourish.studio/resources/embed.js"></script>
+            </div>
         </div>
         <!--<a href="#" class="back-to-top" title="Back To Top">&uarr;</a>-->
         <p class="back-to-top">
