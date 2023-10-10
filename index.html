@@ -23,10 +23,9 @@
         /* Custom CSS */
         @media (max-width: 767px) {
             .small-logo {
-                max-width: 150px; /* Increase the size to 150px */
+                max-width: 100px; /* Increase the size to 150px */
                 margin: 0 auto; /* Center the logo on smaller screens */
             }
-
         }
     </style>
 
@@ -36,7 +35,7 @@
         .content {
             max-width: 1200px; /* Set a maximum width for content */
             margin: 0 auto; /* Center content horizontally */
-            padding: 20px; /* Add margin to content */
+            padding: 10px; /* Add margin to content */
         }
 
         .presidential-photos {
@@ -76,6 +75,8 @@
 
         /* Centered responsive div for the image */
         .centered-div {
+            display: block;
+            overflow: auto;
             text-align: center;
             margin: 0 auto;
             /*padding: 20px;*/
@@ -86,7 +87,7 @@
         }
 
             .centered-div img {
-                max-width: 80%;
+                max-width: 60%;
                 height: auto;
                 display: block;
                 margin: 0 auto; /* Center the image horizontally */
@@ -129,10 +130,10 @@
     </style>
 
     <style type="text/css">
-        body {
-            height: 5000px;
-        }
-
+        /*        body {
+                    height: 300px;
+                }
+        */
         /* Logo styling */
         .logo {
             max-width: 100%; /* Make the logo responsive */
@@ -179,233 +180,21 @@
 
     <!-- Scrolling banner to indicate live results -->
     <marquee behavior="scroll" direction="left" style="background-color:red;color:white;">
-        <span>Live Results: Party 5 leading with 15.57% of the votes | Last update: 19/09/2023 14:53 GMT</span>
+        <span>Live Results: 15.57% of polling places reported | Last update: 19/09/2023 14:53 GMT</span>
     </marquee>
-
-    <div class="content">
-        <!-- Custom buttons that turn into a dropdown on smaller screens -->
-        <div class="button-container text-center">
-            <!-- Buttons for larger screens -->
-            <div class="d-none d-md-block">
-                <a href="#turnout-county" class="btn btn-outline-danger">Turnout by County</a>
-                <a href="#presidential-turnout" class="btn btn-outline-success">Presidential Turnout</a>
-                <a href="#presidential-result" class="btn btn-outline-primary">Presidential - Results</a>
-                <a href="#senate-result" class="btn btn-outline-primary">Senate - Results</a>
-                <a href="#parliament-result" class="btn btn-outline-primary">House - Results</a>
-            </div>
-
-            <!-- Dropdown for mobile devices -->
-            <div class="dropdown d-md-none">
-                <button class="btn btn-outline-primary dropdown-toggle" type="button" id="mobileDropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Select the visual to see from here
-                </button>
-                <div class="dropdown-menu" aria-labelledby="mobileDropdownMenuButton">
-                    <a class="dropdown-item" href="#turnout-county">Turnout by County</a>
-                    <a class="dropdown-item" href="#presidential-turnout">Presidential Turnout</a>
-                    <a class="dropdown-item" href="#presidential-result">Presidential - Results</a>
-                    <a class="dropdown-item" href="#senate-result">Senate - Results</a>
-                    <a class="dropdown-item" href="#parliament-result">House - Results</a>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Your main content goes here -->
     <!-- Elections Result Turnout -->
-    <section class="content">
-        <div class="centered-div">
-            <div class="flourish-embed flourish-gauge" data-src="visualisation/15135399">
-                <script src="https://public.flourish.studio/resources/embed.js"></script>
-            </div>
-        </div>
-    </section>
-    <br />
 
-    <!-- Elections Turnout by County ---- TO REMOVE -->
-    <!--<section id="election-turnout" class="content" style="max-height: 600px; overflow-y: auto;">
-        <div class="centered-div">
-            <div class="flourish-embed flourish-gauge" data-src="visualisation/15139015">
-                <script src="https://public.flourish.studio/resources/embed.js"></script>
-            </div>
-        </div>
-        <p class="back-to-top">
-            <a href="#top"><i class="fas fa-arrow-up"></i>Back to Top</a>
-        </p>-->
-    <!-- Back to Top link -->
-    <!--</section>
-    <br />-->
-    <!-- Map of turnout by county -->
     <section id="turnout-county" class="content">
         <div class="centered-div">
-            <div class="flourish-embed flourish-map" data-src="visualisation/15138402">
+            <div class="flourish-embed" data-src="story/2050248">
                 <script src="https://public.flourish.studio/resources/embed.js"></script>
             </div>
-        </div>
-        <p class="back-to-top">
-            <a href="#top"><i class="fas fa-arrow-up"></i>Back to Top</a>
-        </p> <!-- Back to Top link -->
-    </section>
-    <br />
-
-    <!-- Presidential Elections Turnout By County -->
-    <section id="presidential-turnout" class="content">
-        <div class="centered-div">
-            <div class="flourish-embed flourish-map" data-src="visualisation/15079078">
+            <!--<div class="flourish-embed flourish-map" data-src="visualisation/15139420">
                 <script src="https://public.flourish.studio/resources/embed.js"></script>
-            </div>
+            </div>-->
         </div>
-        <p class="back-to-top">
-            <a href="#top"><i class="fas fa-arrow-up"></i>Back to Top</a>
-        </p> <!-- Back to Top link -->
-    </section>
-    <br />
-
-    <!-- Presidential Elections Results by County -->
-    <section id="presidential-result" class="content">
-        <div class="centered-div">
-            <div class="flourish-embed" data-src="visualisation/15078536">
-                <script src="https://public.flourish.studio/resources/embed.js"></script>
-            </div>
-        </div>
-        <p class="back-to-top">
-            <a href="#top"><i class="fas fa-arrow-up"></i>Back to Top</a>
-        </p> <!-- Back to Top link -->
-    </section>
-    <br />
-
-    <!-- Senate Election Results -->
-    <section id="senate-result" class="content">
-        <div class="centered-div">
-            <div class="flourish-embed flourish-election results chart" data-src="visualisation/15078127">
-                <script src="https://public.flourish.studio/resources/embed.js"></script>
-            </div>
-        </div>
-        <p class="back-to-top">
-            <a href="#top"><i class="fas fa-arrow-up"></i>Back to Top</a>
-        </p> <!-- Back to Top link -->
-    </section>
-    <br />
-
-    <!-- Parliamentary Elections -->
-    <section id="parliament-result" class="content">
-        <div class="centered-div">
-            <div class="flourish-embed flourish-chart" data-src="visualisation/15043530">
-                <script src="https://public.flourish.studio/resources/embed.js"></script>
-            </div>
-        </div>
-        <!--<a href="#" class="back-to-top" title="Back To Top">&uarr;</a>-->
-        <p class="back-to-top">
-            <a href="#top"><i class="fas fa-arrow-up"></i>Back to Top</a>
-        </p> <!-- Back to Top link -->
-    </section>
-    <br />
-
-    <!-- Presidential Elections -->
-    <section id="candidate-result-by-electoral-district" class="content">
-        <div class="centered-div">
-            <div class="flourish-embed flourish-chart" data-src="visualisation/15165119">
-                <script src="https://public.flourish.studio/resources/embed.js"></script>
-            </div>
-        </div>
-        <!--<a href="#" class="back-to-top" title="Back To Top">&uarr;</a>-->
-        <p class="back-to-top">
-            <a href="#top"><i class="fas fa-arrow-up"></i>Back to Top</a>
-        </p> <!-- Back to Top link -->
-    </section>
-    <br />
-
-    <!-- Parliamentary Elections -->
-    <section id="presidential-result-by-county" class="content">
-        <div class="centered-div">
-            <div class="flourish-embed flourish-chart" data-src="visualisation/15179118">
-                <script src="https://public.flourish.studio/resources/embed.js"></script>
-            </div>
-        </div>
-        <!--<a href="#" class="back-to-top" title="Back To Top">&uarr;</a>-->
-        <p class="back-to-top">
-            <a href="#top"><i class="fas fa-arrow-up"></i>Back to Top</a>
-        </p> <!-- Back to Top link -->
-    </section>
-    <br />
-
-    <!-- Presidential Elections Results by County -->
-    <section id="presidential-result-by-county" class="content">
-        <div class="centered-div">
-            <div class="flourish-embed flourish-chart" data-src="visualisation/15179118">
-                <script src="https://public.flourish.studio/resources/embed.js"></script>
-            </div>
-        </div>
-        <!--<a href="#" class="back-to-top" title="Back To Top">&uarr;</a>-->
-        <p class="back-to-top">
-            <a href="#top"><i class="fas fa-arrow-up"></i>Back to Top</a>
-        </p> <!-- Back to Top link -->
-    </section>
-    <br />
-
-    <!-- Presidential Elections Results by Electoral District -->
-    <section id="candidate-result-by-electoral-district" class="content">
-        <div class="centered-div">
-            <div class="flourish-embed flourish-chart" data-src="visualisation/15165119">
-                <script src="https://public.flourish.studio/resources/embed.js"></script>
-            </div>
-        </div>
-        <!--<a href="#" class="back-to-top" title="Back To Top">&uarr;</a>-->
-        <p class="back-to-top">
-            <a href="#top"><i class="fas fa-arrow-up"></i>Back to Top</a>
-        </p> <!-- Back to Top link -->
-    </section>
-    <br />
-
-    <!-- Presidential Elections Results by Electoral District -->
-    <section id="candidate-result-by-center" class="content">
-        <div class="centered-div">
-            <div class="flourish-embed flourish-chart" data-src="visualisation/15182266">
-                <script src="https://public.flourish.studio/resources/embed.js"></script>
-            </div>
-        </div>
-        <!--<a href="#" class="back-to-top" title="Back To Top">&uarr;</a>-->
-        <p class="back-to-top">
-            <a href="#top"><i class="fas fa-arrow-up"></i>Back to Top</a>
-        </p> <!-- Back to Top link -->
-    </section>
-    <br />
-
-    <!-- Presidential Elections Results by Electoral District -->
-    <section id="candidate-result-by-place" class="content">
-        <div class="centered-div">
-            <div class="flourish-embed flourish-chart" data-src="visualisation/15182345">
-                <script src="https://public.flourish.studio/resources/embed.js"></script>
-            </div>
-        </div>
-        <!--<a href="#" class="back-to-top" title="Back To Top">&uarr;</a>-->
-        <p class="back-to-top">
-            <a href="#top"><i class="fas fa-arrow-up"></i>Back to Top</a>
-        </p> <!-- Back to Top link -->
-    </section>
-    <br />
-
-    <!-- Presidential Elections Results Table by Polling Place -->
-    <section id="candidate-result-table-by-place" class="content">
-        <div class="centered-div">
-            <div class="flourish-embed flourish-table" data-src="visualisation/15135301">
-                <script src="https://public.flourish.studio/resources/embed.js"></script>
-            </div>
-        </div>
-        <!--<a href="#" class="back-to-top" title="Back To Top">&uarr;</a>-->
-        <p class="back-to-top">
-            <a href="#top"><i class="fas fa-arrow-up"></i>Back to Top</a>
-        </p> <!-- Back to Top link -->
-    </section>
-    <br />
-
-    <!-- Presidential Elections Results Table by Polling Place -->
-    <section id="presidential-result-table-place" class="content">
-        <div class="centered-div">
-            <div class="flourish-embed flourish-chart" data-src="visualisation/15195747">
-                <script src="https://public.flourish.studio/resources/embed.js"></script>
-            </div>
-        </div>
-        <!--<a href="#" class="back-to-top" title="Back To Top">&uarr;</a>-->
         <p class="back-to-top">
             <a href="#top"><i class="fas fa-arrow-up"></i>Back to Top</a>
         </p> <!-- Back to Top link -->
