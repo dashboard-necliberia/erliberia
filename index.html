@@ -3,95 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Include Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <!-- Include Google Fonts for custom font -->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Include FontAwesome CSS for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
-
-    <!-- Reference Leaflet.js -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-
-    <!-- Reference Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
     <title>Liberia Election Results</title>
     <style>
         /* Custom CSS */
-        @media (max-width: 767px) {
-            .small-logo {
-                max-width: 100px; /* Increase the size to 150px */
-                margin: 0 auto; /* Center the logo on smaller screens */
-            }
+        .small-logo {
+            max-width: 100px;
+            margin: 0 auto;
         }
     </style>
-
-    <!-- Custom CSS for small photos -->
     <style>
-        /* Custom CSS for small photos */
         .content {
-            max-width: 1200px; /* Set a maximum width for content */
-            max-height: 600px; /* Set a maximum width for content */
-            margin: 0 auto; /* Center content horizontally */
-            padding: 10px; /* Add margin to content */
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 10px;
         }
 
-        .presidential-photos {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap; /* Allow photos to wrap to the next line on small screens */
-        }
-
-        .candidate-card {
-            text-align: center;
-            width: 100px; /* Set a fixed width of 100px for each photo */
-            border: 2px solid #ccc; /* Add a border */
-            padding: 5px;
-            margin-bottom: 20px; /* Add spacing between photos */
-        }
-
-        .candidate-photo {
-            width: 80px; /* Set a fixed width for the photo */
-            height: 80px; /* Set a fixed height for the photo */
-            border-radius: 50%; /* Make the photo round */
-            margin: 0 auto; /* Center the photo horizontally */
-        }
-
-        .candidate-name {
-            font-weight: bold;
-        }
-
-        /* Custom CSS for the leading mark */
-        .leading-mark {
-            background-color: #ffcc00; /* Background color for the leading mark */
-            color: #ffffff; /* Text color for the leading mark */
-            font-weight: bold; /* Make the text bold */
-            padding: 5px 10px; /* Add padding to the mark for spacing */
-            border-radius: 5px; /* Add rounded corners to the mark */
-        }
-
-        /* Centered responsive div for the image */
         .centered-div {
             display: block;
             overflow: auto;
             text-align: center;
             margin: 0 auto;
-            /*padding: 20px;*/
-            /*box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);*/ /* Apply light shadow */
             box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
-            background-color: white; /* Background color for the centered div */
-            border-radius: 20px; /* Rounded corners for the centered div */
+            background-color: white;
+            border-radius: 20px;
         }
 
             .centered-div img {
-                max-width: 60%;
+                max-width: 100%;
                 height: auto;
                 display: block;
-                margin: 0 auto; /* Center the image horizontally */
+                margin: 0 auto;
             }
 
         /* Base styles for the scrolling banner */
@@ -100,49 +48,49 @@
             color: white;
             overflow: hidden;
             white-space: nowrap;
-            align-items: center;
-            align-items: center; /* Center vertically */
         }
 
         /* Responsive styles for smaller screens */
         @media (max-width: 767px) {
             .logo {
-                max-width: 100%; /* Reduce logo size for smaller screens */
+                max-width: 100%;
             }
 
             .scrolling-banner {
-                font-size: 14px; /* Reduce font size for smaller screens */
-            }
-        }
-
-        /* Responsive styles for medium screens */
-        @media (min-width: 768px) and (max-width: 991px) {
-            .scrolling-banner {
-                font-size: 10px; /* Adjust font size for medium screens */
-            }
-        }
-
-        /* Responsive styles for larger screens */
-        @media (min-width: 992px) {
-            .scrolling-banner {
-                font-size: 14px; /* Increase font size for larger screens */
+                font-size: 14px;
             }
         }
     </style>
-
-    <style type="text/css">
-        /*        body {
-                    height: 300px;
-                }
-        */
-        /* Logo styling */
-        .logo {
-            max-width: 100%; /* Make the logo responsive */
-            height: auto; /* Maintain aspect ratio */
-            display: block; /* Remove inline spacing */
-            margin: 0 auto; /* Center-align the logo */
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
         }
 
+        .site-header {
+            background-color: #0071bc;
+            color: #fff;
+            border-bottom: 1px solid #e5e5e5;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+            .site-header img {
+                max-width: 100%;
+                height: auto;
+                margin-right: 20px;
+            }
+
+        .footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+    </style>
+    <style>
         .back-to-top {
             position: fixed;
             bottom: 40px;
@@ -171,7 +119,7 @@
         <div class="container">
             <nav class="navbar navbar-expand-md navbar-light">
                 <div class="header">
-                    <img src="images/logo.jpg" alt="Banner Image" class="img-fluid">
+                    <img src="images/logo.jpg" alt="Banner Image" class="img-fluid small-logo">
                 </div>
             </nav>
         </div>
@@ -180,8 +128,8 @@
     <div id="top"></div>
 
     <!-- Scrolling banner to indicate live results -->
-    <marquee behavior="scroll" direction="left" style="background-color:red;color:white;">
-        <span style="font-size: 30px; font-weight: bold;">Live Results: 1,528 (25.94%) of 5890 polling places reported. | Last update: 10/13/2023 19:00 GMT</span>
+    <marquee behavior="scroll" direction="left" style="background-color: red; color: white;">
+        <span style="font-size: 24px; font-weight: bold;">Live Results: 2,935 (49.83%) of 5890 polling places reported. | Last update: 10/14/2023 17:00 GMT</span>
     </marquee>
 
     <!-- Your main content goes here -->
@@ -190,11 +138,12 @@
     <section id="turnout-county" class="content">
         <div class="centered-div">
             <div class="flourish-embed" data-src="story/2054615">
-            <script src="https://public.flourish.studio/resources/embed.js"></script></div>
+                <script src="https://public.flourish.studio/resources/embed.js"></script>
+            </div>
         </div>
         <p class="back-to-top">
             <a href="#top"><i class="fas fa-arrow-up"></i>Back to Top</a>
-        </p> <!-- Back to Top link -->
+        </p>
     </section>
     <br />
 
@@ -208,9 +157,4 @@
     <!-- Include Bootstrap JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
-</body>
-</html>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4
