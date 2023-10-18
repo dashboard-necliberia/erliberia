@@ -1,4 +1,6 @@
 /* Reset some default styles for the header and footer */
+
+
 body, h1, h2, h3, p, ul, li {
     margin: 0;
     padding: 0;
@@ -10,7 +12,7 @@ body, h1, h2, h3, p, ul, li {
     background-color: #0071bc; /* Background color */
     color: #fff;
     border-bottom: 1px solid #e5e5e5;
-    /*padding: 20px 0;*/
+    padding: 5px;
     display: flex; /* Use flex layout */
     justify-content: space-between; /* Space between logo and menu */
     align-items: center; /* Center vertically */
